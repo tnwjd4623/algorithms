@@ -1,8 +1,4 @@
-package hw01;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class threewaymergeSort {
 	private int number[];
@@ -135,20 +131,5 @@ public class threewaymergeSort {
 		}
 		
 	}
-	public void printArray() {
-		System.out.print("[");
-		for(int i = 0; i<size-1; i++) {
-			System.out.print(number[i]+", ");
-		}
-		System.out.println(number[size-1]+" ]");
-	}
 	
-	public void printFile(File file) throws IOException{
-		FileWriter fw = new FileWriter(file);
-		for(int i = 0; i<size-1; i++) {
-			fw.write(number[i]+",");
-		}
-		fw.write(number[size-1]+"");
-		fw.close();
-	}
 }
