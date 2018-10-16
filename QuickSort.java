@@ -14,6 +14,7 @@ public class QuickSort {
 		this.size = size;
 	}
 	
+	//partition
 	public int partition(int p, int r) {
 		int x = array[r];
 		int i = p-1;
@@ -33,6 +34,8 @@ public class QuickSort {
 		
 		return i;
 	}
+	
+	//random partition
 	public int randomizedPartition(int p, int r) {
 		Random random = new Random();
 		int i = random.nextInt(r-p+1)+p;
@@ -43,6 +46,8 @@ public class QuickSort {
 		
 		return partition(p, r);
 	}
+	
+	//quicksort
 	public void quickSort(int p, int r) {
 		if(p<r) {
 			int q = partition( p, r);
@@ -50,6 +55,8 @@ public class QuickSort {
 			quickSort(q+1, r);
 		}
 	}
+	
+	//random quicksort
 	public void quickSort_withRandom(int p, int r) {
 		if(p<r) {
 			int q = randomizedPartition(p, r);
@@ -58,14 +65,4 @@ public class QuickSort {
 		}
 	}
 	
-	public void makeFile(File file) throws IOException {
-
-		FileWriter fw = new FileWriter(file);
-		
-		for(int i=0; i<size-1; i++) {
-			fw.write(array[i]+",");
-		}
-		fw.write(array[size-1]+"");
-		fw.close();
-	}
 }
