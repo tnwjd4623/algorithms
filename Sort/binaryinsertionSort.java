@@ -1,8 +1,4 @@
-package hw01;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class binaryinsertionSort {
 	private int number[];
