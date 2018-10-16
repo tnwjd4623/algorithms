@@ -7,6 +7,7 @@ public class floor {
 		this.N = n;
 	}
 	
+	//2진 탐색 없이
 	public int no_binarySearch() {
 		int e = -1;
 		long k = 1;
@@ -18,6 +19,7 @@ public class floor {
 		return e;
 	}
 	
+	//2진탐색을 추가한 floor
 	public int with_binarySearch() {
 		
 		int e = 0;
