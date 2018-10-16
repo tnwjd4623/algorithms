@@ -12,12 +12,15 @@ public class Fibo {
 		matrix = new long[][]{{1L, 1L}, {1L, 0}};
 	}
 	
+	
 	public long fibo_Recursion(long n) {
 		if(n<2)
 			return n;
 		
 		return fibo_Recursion(n-1) + fibo_Recursion(n-2);
 	}
+	
+	//fibonacci with array
 	public long fibo_Array(int n) {
 		if(n>1&&f[n]==0) {
 			f[n] = fibo_Array(n-1) + fibo_Array(n-2);
@@ -25,6 +28,8 @@ public class Fibo {
 		
 		return f[n];
 	}
+	
+	//fibonacci with divide and conquer
 	public long fibo_RecursiveSquaring(int n) {
 		if(n<2)
 			return n;
