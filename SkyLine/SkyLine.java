@@ -29,12 +29,12 @@ public class SkyLine {
 		B = new Building[n];
 	}
 	
-	//ºôµù Ãß°¡
+	//ë¹Œë”© ì¶”ê°€
 	public void addBuilding(int left, int height, int right) {
 		B[size++] = new Building(left, height, right);
 	}
 	
-	//½ºÄ«ÀÌ¶óÀÎ ¾Ë°í¸®Áò ½ÇÇà
+	//ìŠ¤ì¹´ì´ë¼ì¸ ì•Œê³ ë¦¬ì¦˜ ì‹¤í–‰
 	public void do_skyline() {
 		ArrayList<_skyline> result = new ArrayList<_skyline>();
 		result = findSkyline(B, 0, size-1);
