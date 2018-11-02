@@ -58,7 +58,7 @@ public class ClosestPair {
 		
 	}
 	
-	/*¹üÀ§ ³»ÀÇ Á¡ »çÀÌ¿¡¼­ ÃÖ¼Ò °ª ±¸ÇÏ±â*/
+	/*ë²”ìœ„ ë‚´ì˜ ì  ì‚¬ì´ì—ì„œ ìµœì†Œ ê°’ êµ¬í•˜ê¸°*/
 	private double find_Min(int first, int last) {
 		double min = 10000000;
 		
@@ -82,7 +82,7 @@ public class ClosestPair {
 		return min;
 	}
 	
-	/*window ¾º¿ò*/
+	/*window ì”Œì›€*/
 	private double window_Min(double d) {
 		int L = size/2;
 		int i, j;
