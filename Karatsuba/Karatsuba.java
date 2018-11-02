@@ -8,7 +8,7 @@ public class Karatsuba {
 		this.threshold = 3;
 	}
 	public long mul(long x, long y) {
-		int n = getThreshold(x);		//x¿Í yÀÇ ÀÚ¸®¼ö°¡ ¶È°°À½?
+		int n = getThreshold(x);		//xÂ¿Ã yÃ€Ã‡ Ã€ÃšÂ¸Â®Â¼Ã¶Â°Â¡ Â¶ÃˆÂ°Â°Ã€Â½?
 		
 		if(n <= threshold) {
 			return x*y;
