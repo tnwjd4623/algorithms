@@ -84,7 +84,7 @@ public class Dijkstra {
 		
 		while(!Q.isEmpty()) {
 			Vertex root = Q.poll();
-			System.out.println("�ѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤѤ�");
+			System.out.println("天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天");
 			System.out.println("S["+i+"] : d["+root.v+"] = "+root.distance);
 			S[i++] = root.v;
 			int u = getIndex(root.v);
