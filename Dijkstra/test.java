@@ -5,10 +5,10 @@ public class test {
 		Dijkstra d = new Dijkstra(5);
 		String v[] = new String[]{"A","B","C","D","E"};
 		
-		d.addVertex(v);	//정점 추가하기, 인자는 배열
+		d.addVertex(v);	//add Vertex to Graph
 		
 		
-		//Edge 추가하기 String, String, Integer
+		//add Edge to Graph ( Vertex 1, Vertex 2, Weight )
 		d.addPath("A", "B", 10);
 		d.addPath("A", "C", 3);
 		d.addPath("B", "D", 2);
