@@ -28,7 +28,7 @@ public class Main {
 		capacity[4][5] = 17;
 		
 
-		System.out.println("À¯·® ³×Æ®¿öÅ© ÀüÃ¼ÀÇ ÃÖ´ë ¿ë·®: "+networkFlow(0, 5));
+		System.out.println("ìœ ëŸ‰ ë„¤íŠ¸ì›Œí¬ ì „ì²´ì˜ ìµœëŒ€ ìš©ëŸ‰: "+networkFlow(0, 5));
 	}
 	
 	public static int networkFlow(int source, int sink) {
@@ -62,21 +62,21 @@ public class Main {
 			int amount = INF;
 			
 			for(int p = sink; p!=source; p=parent[p]){
-				//capacity Áß ÃÖ¼Ò °ª
+				//capacity ì¤‘ ìµœì†Œ ê°’
 				amount = Math.min(capacity[parent[p]][p] - flow[parent[p]][p], amount);
 			}
 			for(int p = sink; p!=source; p=parent[p]){
-				flow[parent[p]][p] += amount;			//Èå¸£´Â À¯·®
-				flow[p][parent[p]] -= amount;			//ÀÜ¿© À¯·®
+				flow[parent[p]][p] += amount;			//íë¥´ëŠ” ìœ ëŸ‰
+				flow[p][parent[p]] -= amount;			//ì”ì—¬ ìœ ëŸ‰
 				path.push(p);
 			}
-			System.out.print("°æ·Î: 0 ");
+			System.out.print("ê²½ë¡œ: 0 ");
 			while(!path.isEmpty()) {
 				System.out.print(path.pop()+" ");
 			}
 			totalFlow += amount;
 			
-			System.out.println("/ ÃÖ´ë ¿ë·®:"+amount);
+			System.out.println("/ ìµœëŒ€ ìš©ëŸ‰:"+amount);
 		}
 		
 		
