@@ -1,53 +1,85 @@
-package hw13;
+package hw14;
 
-import java.util.Scanner;
-import java.util.StringTokenizer;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.Vector;
 
 public class Main {
-	public static void main(String args[]) {
-		Matrix_Chain_Multiplication m = new Matrix_Chain_Multiplication();
-		int size = 0;
-		
-		Scanner scan = new Scanner(System.in);
-		String str = scan.nextLine();
-		StringTokenizer t = new StringTokenizer(str, " ");
-		
-		t.nextToken();t.nextToken();			
-
-		int p = Integer.parseInt(t.nextToken());
-		t.nextToken();
-		int q = Integer.parseInt(t.nextToken());
-		
-		m.addFirst(p, q);
-		size++;
-		while(true) {
-			String str2 = scan.nextLine();
-			if(str2.equals("0"))
-				break;
-			
-			StringTokenizer t2 = new StringTokenizer(str2, " ");
-			
-			t2.nextToken();t2.nextToken();			
+	static int INF = 987654321;
+	static int V = 6;
+	static int[][] capacity;
+	static int[][] flow;
 	
-			int p2 = Integer.parseInt(t2.nextToken());
-			t2.nextToken();
-			int q2 = Integer.parseInt(t2.nextToken());
+	public static void main(String args[]) {
+		capacity = new int[6][6];
+		
+		capacity[0][1] = 12;
+		capacity[0][3] = 3;
+		
+		capacity[1][2] = 10;
+		
+		capacity[2][4] = 3;
+		capacity[2][5] = 15;
+		
+		capacity[3][1] = 11;
+		capacity[3][4] = 5;
+		
+		capacity[4][5] = 17;
+		
+
+		System.out.println("유량 네트워크 전체의 최대 용량: "+networkFlow(0, 5));
+	}
+	
+	public static int networkFlow(int source, int sink) {
+		flow = new int[6][6];
+		Stack path = new Stack();
+		int totalFlow = 0;
+		
+		while(true) {
+			int[] parent = new int[6];
+			for(int i = 0; i<6; i++) {
+				parent[i] = -1;
+			}
+			Queue<Integer> q = new LinkedList<Integer>();
 			
-			m.addMatrix(q2);
-			size++;
+			parent[source] = source;
+			q.add(source);
+			
+			while(!q.isEmpty() && parent[sink] == -1) {
+				int here = q.poll();
+				for(int there = 0; there<V; there++) {
+					if(capacity[here][there] - flow[here][there]>0 
+							&& parent[there] == -1)  {
+						q.add(there);//System.out.println(here+" "+there);
+						parent[there] = here;
+					}
+				}
+			}
+		
+			if(parent[sink] == -1) break;
+			
+			int amount = INF;
+			
+			for(int p = sink; p!=source; p=parent[p]){
+				//capacity 중 최소 값
+				amount = Math.min(capacity[parent[p]][p] - flow[parent[p]][p], amount);
+			}
+			for(int p = sink; p!=source; p=parent[p]){
+				flow[parent[p]][p] += amount;			//흐르는 유량
+				flow[p][parent[p]] -= amount;			//잔여 유량
+				path.push(p);
+			}
+			System.out.print("경로: 0 ");
+			while(!path.isEmpty()) {
+				System.out.print(path.pop()+" ");
+			}
+			totalFlow += amount;
+			
+			System.out.println("/ 최대 용량:"+amount);
 		}
 		
-		m.Matrix_Chain_Order();
-		System.out.println("----------------------------------------------------------");
-		m.printMArray();
-		System.out.println("----------------------------------------------------------");
-		m.printSArray();
-		System.out.println("----------------------------------------------------------");
-
 		
-		
-		m.printOptimalSolution();
-		System.out.print("Optimal parens : ");
-		m.Print_Optimal_Parens(1, size);
+		return totalFlow;
 	}
 }
