@@ -58,7 +58,7 @@ public class Knapsack {
 			}
 		}
 		
-		//OPT 1 ~ size ╠╦го╠Б
+		//OPT 1 ~ size б╠б╦ц┤ц▐б╠ц╒
 		for(int i = 0; i<index; i++) {
 			for(int j = 0; j<=size; j++) {
 				OPT(i, j);
