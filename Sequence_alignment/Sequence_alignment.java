@@ -193,7 +193,7 @@ public class Sequence_alignment {
 				}
 			}
 			if(tmp>max) max = tmp;
-			System.out.println("°æ·Î:"+(i+1)+"\t"+result1[i]+"\tÁ¡¼ö: "+max+"\n\t"+result2[i]);
+			System.out.println("Â°Ã¦Â·Ã:"+(i+1)+"\t"+result1[i]+"\tÃÂ¡Â¼Ã¶: "+max+"\n\t"+result2[i]);
 		}
 	}
 
